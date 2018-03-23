@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd lmbench-3.0-a9/bin/lmbench
+cd ../bin/lmbench
 
 echo '*********************************'
 echo '      lmbench bw_mem     32M       '

@@ -16,7 +16,7 @@
 
 
     - name: execute lmbench test according to server type
-      shell: ./lmbench-lat-test.sh
+      shell: ./lmbench-bw-test.sh
       args:
         chdir: /usr/local/benchmark/lmbench-3.0-a9/scripts
       register: logdata
@@ -24,7 +24,7 @@
 
 
     - name: execute lmbench test according to server type
-      shell: ./lmbench-lat-test-2650v4.sh
+      shell: ./lmbench-bw-test-2650v4.sh
       args:
         chdir: /usr/local/benchmark/lmbench-3.0-a9/scripts
       register: logdata

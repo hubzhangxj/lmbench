@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd lmbench-3.0-a9/bin/lmbench
+cd ../bin/lmbench
 
 function lat_local_test_trash() {
 	echo '********lat 1core t***********'
