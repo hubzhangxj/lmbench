@@ -30,7 +30,7 @@
       register: logdata
       when: x86_2650.stdout.find('E5-2650') != -1
 
-    - lineinfile: create=yes  dest=/tmp/lmbench_output.log line="{{ logdata.stdout }}" state=present mode=0755
+    - lineinfile: create=yes  dest=/tmp/lmbench_output.log line="{{ logdata.stdout+'\n'+logdata.stderr }}" state=present mode=0755
 
     - name: fetch result
       fetch:
