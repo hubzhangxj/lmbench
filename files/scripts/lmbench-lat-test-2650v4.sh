@@ -3,14 +3,14 @@
 cd ../bin/lmbench
 
 function lat_local_test_trash() {
-	echo '********lat 1core t***********'
-	numactl --membind=0 --physcpubind=0 ./lat_mem_rd -P 1 -N 5 -t 256M 128
-	echo '********lat 12core  t***********'
-	numactl --membind=0 --physcpubind=0-11 ./lat_mem_rd -P 12  -N 5 -t 256M  128
-	echo '********lat 1socket  t************'
-	numactl --membind=0 --cpunodebind=0 ./lat_mem_rd -P 24 -N 5 -t 256M 128
-	echo '********lat 2socket  t************'
-	numactl --membind=0 --cpunodebind=0,1 ./lat_mem_rd -P 48 -N 5 -t 256M 128
+	echo '********localdie 1core ***********'
+	numactl --membind=0 --physcpubind=0 ./lat_mem_rd -P 1 -N 5 -t 256M 128 2>&1
+	echo '********localdie 12core ***********'
+	numactl --membind=0 --physcpubind=0-11 ./lat_mem_rd -P 12  -N 5 -t 256M  128 2>&1
+	echo '********localdie 24core ************'
+	numactl --membind=0 --cpunodebind=0 ./lat_mem_rd -P 24 -N 5 -t 256M 128 2>&1
+	echo '********localdie 48core ************'
+	numactl --membind=0 --cpunodebind=0,1 ./lat_mem_rd -P 48 -N 5 -t 256M 128 2>&1
 }
 
 function lat_local_test_stride() {
@@ -26,11 +26,11 @@ function lat_local_test_stride() {
 
 function lat_cross_socket_trash() {
 	echo '********cross socket  1core t***********'
-	numactl --membind=1 --physcpubind=0 ./lat_mem_rd -P 1 -N 5 -t 256M 128
-	echo '********cross socket  12core  t***********'
-	numactl --membind=1 --physcpubind=0-11 ./lat_mem_rd -P 12 -N 5 -t 256M  128
-	echo '********cross socket  1socket  t***********'
-	numactl --membind=1 --cpunodebind=0 ./lat_mem_rd -P 24 -N 5 -t 256M  128
+	numactl --membind=1 --physcpubind=0 ./lat_mem_rd -P 1 -N 5 -t 256M 128 2>&1
+	echo '********cross socket  12core  ***********'
+	numactl --membind=1 --physcpubind=0-11 ./lat_mem_rd -P 12 -N 5 -t 256M  128 2>&1
+	echo '********cross socket  24core  ***********'
+	numactl --membind=1 --cpunodebind=0 ./lat_mem_rd -P 24 -N 5 -t 256M  128 2>&1
 }
 
 function lat_cross_socket_stride() {
