@@ -1,5 +1,5 @@
 lmbench:
-  lmbench_bandwidth:
+  lmbench_bw:
     category: 'Performance'
     scores_way: 'compute_speed_score 3'
     parser: 'lmbench_parser'
