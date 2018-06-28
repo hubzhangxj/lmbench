@@ -1,4 +1,4 @@
-!/bin/bashOB
+#!/bin/bash
 
 cd ../bin/lmbench
 
